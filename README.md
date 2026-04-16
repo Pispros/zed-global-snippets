@@ -1,4 +1,4 @@
-# Zed JS/TS Global Snippets
+# Zed Global Snippets
 
 A comprehensive collection of 174 code snippets for JavaScript, TypeScript, React, Angular, Vue, PHP, Go, Rust, and Python, designed for the [Zed](https://zed.dev) code editor.
 
