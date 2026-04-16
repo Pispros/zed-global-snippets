@@ -1,0 +1,1347 @@
+{
+  "Arrow Function": {
+    "prefix": "af",
+    "body": ["const ${1:name} = (${2:params}) => {", "\t$0", "};"],
+    "description": "Arrow function"
+  },
+  "Arrow Function Inline": {
+    "prefix": "afi",
+    "body": ["const ${1:name} = (${2:params}) => $0;"],
+    "description": "Inline arrow function"
+  },
+  "Async Arrow Function": {
+    "prefix": "aaf",
+    "body": ["const ${1:name} = async (${2:params}) => {", "\t$0", "};"],
+    "description": "Async arrow function"
+  },
+  "Async IIFE": {
+    "prefix": "aiife",
+    "body": ["(async () => {", "\t$0", "})();"],
+    "description": "Async IIFE"
+  },
+  "Event Handler": {
+    "prefix": "evth",
+    "body": ["const handle${1:Event} = (${2:e}) => {", "\t$0", "};"],
+    "description": "Event handler"
+  },
+  "Try Catch": {
+    "prefix": "tc",
+    "body": [
+      "try {",
+      "\t$1",
+      "} catch (${2:error}) {",
+      "\tconsole.error(${2:error});",
+      "\t$0",
+      "}"
+    ],
+    "description": "try/catch"
+  },
+  "Try Catch Finally": {
+    "prefix": "tcf",
+    "body": [
+      "try {",
+      "\t$1",
+      "} catch (${2:error}) {",
+      "\tconsole.error(${2:error});",
+      "\t$3",
+      "} finally {",
+      "\t$0",
+      "}"
+    ],
+    "description": "try/catch/finally"
+  },
+  "New Promise": {
+    "prefix": "prom",
+    "body": ["new Promise((resolve, reject) => {", "\t$0", "})"],
+    "description": "new Promise"
+  },
+  "Fetch": {
+    "prefix": "fetch",
+    "body": [
+      "const response = await fetch('${1:url}');",
+      "const data = await response.json();",
+      "$0"
+    ],
+    "description": "fetch with await"
+  },
+  "Fetch with Error Handling": {
+    "prefix": "fetche",
+    "body": [
+      "try {",
+      "\tconst response = await fetch('${1:url}');",
+      "\tif (!response.ok) throw new Error(`HTTP error! status: \\${response.status}`);",
+      "\tconst ${2:data} = await response.json();",
+      "\t$0",
+      "} catch (${3:error}) {",
+      "\tconsole.error(${3:error});",
+      "}"
+    ],
+    "description": "fetch with error handling"
+  },
+  "Array map": {
+    "prefix": "map",
+    "body": ["${1:array}.map((${2:item}) => $0)"],
+    "description": "Array.map"
+  },
+  "Array filter": {
+    "prefix": "filter",
+    "body": ["${1:array}.filter((${2:item}) => $0)"],
+    "description": "Array.filter"
+  },
+  "Array reduce": {
+    "prefix": "reduce",
+    "body": [
+      "${1:array}.reduce((${2:acc}, ${3:cur}) => {",
+      "\t$0",
+      "\treturn ${2:acc};",
+      "}, ${4:initialValue})"
+    ],
+    "description": "Array.reduce"
+  },
+  "Array find": {
+    "prefix": "find",
+    "body": ["${1:array}.find((${2:item}) => $0)"],
+    "description": "Array.find"
+  },
+  "Array some": {
+    "prefix": "some",
+    "body": ["${1:array}.some((${2:item}) => $0)"],
+    "description": "Array.some"
+  },
+  "Array every": {
+    "prefix": "every",
+    "body": ["${1:array}.every((${2:item}) => $0)"],
+    "description": "Array.every"
+  },
+  "console.log": {
+    "prefix": "cl",
+    "body": ["console.log($0);"],
+    "description": "console.log"
+  },
+  "console.log labeled": {
+    "prefix": "cll",
+    "body": ["console.log('${1:label}:', $0);"],
+    "description": "console.log with label"
+  },
+  "console.error": {
+    "prefix": "ce",
+    "body": ["console.error($0);"],
+    "description": "console.error"
+  },
+  "console.warn": {
+    "prefix": "cw",
+    "body": ["console.warn($0);"],
+    "description": "console.warn"
+  },
+  "console.table": {
+    "prefix": "ctbl",
+    "body": ["console.table($0);"],
+    "description": "console.table"
+  },
+  "Import Named": {
+    "prefix": "imn",
+    "body": ["import { $1 } from '${2:module}';"],
+    "description": "Named import"
+  },
+  "Import Default": {
+    "prefix": "imd",
+    "body": ["import ${1:name} from '${2:module}';"],
+    "description": "Default import"
+  },
+  "Import Type": {
+    "prefix": "imt",
+    "body": ["import type { $1 } from '${2:module}';"],
+    "description": "Type-only import"
+  },
+  "Import React": {
+    "prefix": "imr",
+    "body": ["import React from 'react';"],
+    "description": "Import React"
+  },
+  "Import React Hooks": {
+    "prefix": "imhooks",
+    "body": ["import { ${1:useState, useEffect} } from 'react';"],
+    "description": "Import React hooks"
+  },
+  "React Functional Component": {
+    "prefix": "rfc",
+    "body": [
+      "export default function ${1:ComponentName}() {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t);",
+      "}"
+    ],
+    "description": "React functional component"
+  },
+  "React Functional Component with Props": {
+    "prefix": "rfcp",
+    "body": [
+      "export default function ${1:ComponentName}({ $2 }) {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t);",
+      "}"
+    ],
+    "description": "React functional component with props"
+  },
+  "React Arrow Component": {
+    "prefix": "rac",
+    "body": [
+      "const ${1:ComponentName} = () => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t);",
+      "};",
+      "",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "React arrow component"
+  },
+  "React Arrow Component with Props": {
+    "prefix": "racp",
+    "body": [
+      "const ${1:ComponentName} = ({ $2 }) => {",
+      "\treturn (",
+      "\t\t<div>",
+      "\t\t\t$0",
+      "\t\t</div>",
+      "\t);",
+      "};",
+      "",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "React arrow component with props"
+  },
+  "useState": {
+    "prefix": "us",
+    "body": [
+      "const [${1:state}, set${2:State}] = useState(${3:initialValue});"
+    ],
+    "description": "useState hook"
+  },
+  "useState Typed": {
+    "prefix": "ust",
+    "body": [
+      "const [${1:state}, set${2:State}] = useState<${3:Type}>(${4:initialValue});"
+    ],
+    "description": "Typed useState hook"
+  },
+  "useEffect": {
+    "prefix": "ue",
+    "body": [
+      "useEffect(() => {",
+      "\t$1",
+      "\treturn () => {",
+      "\t\t$0",
+      "\t};",
+      "}, [$2]);"
+    ],
+    "description": "useEffect with cleanup"
+  },
+  "useEffect on Mount": {
+    "prefix": "uem",
+    "body": ["useEffect(() => {", "\t$0", "}, []);"],
+    "description": "useEffect on mount"
+  },
+  "useRef": {
+    "prefix": "ur",
+    "body": ["const ${1:ref} = useRef<${2:HTMLDivElement}>(null);"],
+    "description": "useRef"
+  },
+  "useCallback": {
+    "prefix": "ucb",
+    "body": [
+      "const ${1:memoizedFn} = useCallback((${2:param}: ${3:type}) => {",
+      "\t$0",
+      "}, [$4]);"
+    ],
+    "description": "useCallback"
+  },
+  "useMemo": {
+    "prefix": "um",
+    "body": [
+      "const ${1:memoized} = useMemo(() => {",
+      "\treturn $2;",
+      "}, [$3]);"
+    ],
+    "description": "useMemo"
+  },
+  "useContext": {
+    "prefix": "uctx",
+    "body": ["const ${1:value} = useContext(${2:Context});"],
+    "description": "useContext"
+  },
+  "Custom Hook": {
+    "prefix": "chook",
+    "body": ["function use${1:HookName}($2) {", "\t$3", "\treturn $0;", "}"],
+    "description": "Custom React hook"
+  },
+  "Context + Provider": {
+    "prefix": "ctxprov",
+    "body": [
+      "type ${1:My}ContextType = {",
+      "\t${2:value}: ${3:string};",
+      "\tset${4:Value}: (v: ${3:string}) => void;",
+      "};",
+      "",
+      "const ${1:My}Context = createContext<${1:My}ContextType | null>(null);",
+      "",
+      "export function ${1:My}Provider({ children }: { children: React.ReactNode }) {",
+      "\tconst [${2:value}, set${4:Value}] = useState<${3:string}>('');",
+      "\treturn (",
+      "\t\t<${1:My}Context.Provider value={{ ${2:value}, set${4:Value} }}>",
+      "\t\t\t{children}",
+      "\t\t</${1:My}Context.Provider>",
+      "\t);",
+      "}",
+      "",
+      "export function use${1:My}() {",
+      "\tconst ctx = useContext(${1:My}Context);",
+      "\tif (!ctx) throw new Error('use${1:My} must be used within ${1:My}Provider');",
+      "\treturn ctx;",
+      "}"
+    ],
+    "description": "Typed Context + Provider + safe hook"
+  },
+  "React forwardRef": {
+    "prefix": "rfwd",
+    "body": [
+      "const ${1:Component} = React.forwardRef<${2:HTMLDivElement}, ${1:Component}Props>(",
+      "\tfunction ${1:Component}({ $3 }: ${1:Component}Props, ref) {",
+      "\t\treturn (",
+      "\t\t\t<div ref={ref}>",
+      "\t\t\t\t$0",
+      "\t\t\t</div>",
+      "\t\t);",
+      "\t}",
+      ");",
+      "",
+      "export default ${1:Component};"
+    ],
+    "description": "React forwardRef component"
+  },
+  "JSX Fragment": {
+    "prefix": "frag",
+    "body": ["<>", "\t$0", "</>"],
+    "description": "JSX Fragment"
+  },
+  "JSX Map": {
+    "prefix": "jsxmap",
+    "body": [
+      "{${1:items}.map((${2:item}) => (",
+      "\t<${3:div} key={${2:item}.${4:id}}>",
+      "\t\t$0",
+      "\t</${3:div}>",
+      "))}"
+    ],
+    "description": "JSX map"
+  },
+  "JSX Conditional": {
+    "prefix": "jsxif",
+    "body": ["{${1:condition} && (", "\t$0", ")}"],
+    "description": "JSX conditional &&"
+  },
+  "JSX Ternary": {
+    "prefix": "jsxt",
+    "body": ["{${1:condition}", "\t? $2", "\t: $0", "}"],
+    "description": "JSX ternary"
+  },
+  "onChange Input": {
+    "prefix": "onch",
+    "body": [
+      "onChange={(e: React.ChangeEvent<HTMLInputElement>) => set${1:State}(e.target.value)}"
+    ],
+    "description": "Typed onChange for input"
+  },
+  "onSubmit Form": {
+    "prefix": "onsub",
+    "body": [
+      "onSubmit={(e: React.FormEvent<HTMLFormElement>) => {",
+      "\te.preventDefault();",
+      "\t$0",
+      "}}"
+    ],
+    "description": "Typed onSubmit"
+  },
+  "useFetch Hook": {
+    "prefix": "usefetch",
+    "body": [
+      "function useFetch<T>(url: string) {",
+      "\tconst [data, setData] = useState<T | null>(null);",
+      "\tconst [loading, setLoading] = useState(true);",
+      "\tconst [error, setError] = useState<Error | null>(null);",
+      "",
+      "\tuseEffect(() => {",
+      "\t\tlet cancelled = false;",
+      "\t\tsetLoading(true);",
+      "\t\tfetch(url)",
+      "\t\t\t.then((res) => {",
+      "\t\t\t\tif (!res.ok) throw new Error(`HTTP \\${res.status}`);",
+      "\t\t\t\treturn res.json() as Promise<T>;",
+      "\t\t\t})",
+      "\t\t\t.then((d) => { if (!cancelled) setData(d); })",
+      "\t\t\t.catch((e: Error) => { if (!cancelled) setError(e); })",
+      "\t\t\t.finally(() => { if (!cancelled) setLoading(false); });",
+      "\t\treturn () => { cancelled = true; };",
+      "\t}, [url]);",
+      "",
+      "\treturn { data, loading, error };",
+      "}"
+    ],
+    "description": "Generic typed useFetch hook"
+  },
+  "TypeScript Interface": {
+    "prefix": "iface",
+    "body": ["interface ${1:Name} {", "\t${2:key}: ${3:type};$0", "}"],
+    "description": "TS interface"
+  },
+  "TypeScript Interface Extends": {
+    "prefix": "ifacee",
+    "body": [
+      "interface ${1:Name} extends ${2:Base} {",
+      "\t${3:key}: ${4:type};$0",
+      "}"
+    ],
+    "description": "TS interface extends"
+  },
+  "TypeScript Type": {
+    "prefix": "ttype",
+    "body": ["type ${1:Name} = ${0:string};"],
+    "description": "Type alias"
+  },
+  "TypeScript Type Object": {
+    "prefix": "tobj",
+    "body": ["type ${1:Name} = {", "\t${2:key}: ${3:type};$0", "};"],
+    "description": "Object type alias"
+  },
+  "TypeScript Union": {
+    "prefix": "tunion",
+    "body": ["type ${1:Name} = ${2:TypeA} | ${3:TypeB};"],
+    "description": "Union type"
+  },
+  "TypeScript Intersection": {
+    "prefix": "tinter",
+    "body": ["type ${1:Name} = ${2:TypeA} & ${3:TypeB};"],
+    "description": "Intersection type"
+  },
+  "TypeScript Enum": {
+    "prefix": "tsenum",
+    "body": ["enum ${1:Name} {", "\t${2:Value1},", "\t${3:Value2},$0", "}"],
+    "description": "TS enum"
+  },
+  "TypeScript Generic Function": {
+    "prefix": "gfn",
+    "body": [
+      "function ${1:name}<${2:T}>(${3:arg}: ${2:T}): ${4:T} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Generic function"
+  },
+  "TypeScript Generic Arrow": {
+    "prefix": "gaf",
+    "body": [
+      "const ${1:name} = <${2:T},>(${3:arg}: ${2:T}): ${4:T} => {",
+      "\t$0",
+      "};"
+    ],
+    "description": "Generic arrow function"
+  },
+  "TypeScript Type Guard": {
+    "prefix": "tguard",
+    "body": [
+      "function is${1:TypeName}(value: unknown): value is ${1:TypeName} {",
+      "\treturn $0;",
+      "}"
+    ],
+    "description": "Type guard"
+  },
+  "TypeScript Satisfies": {
+    "prefix": "sat",
+    "body": ["${1:value} satisfies ${2:Type}"],
+    "description": "satisfies operator"
+  },
+  "TypeScript Mapped Type": {
+    "prefix": "tmap",
+    "body": [
+      "type ${1:Mapped} = {",
+      "\t[K in keyof ${2:Base}]: ${3:string};",
+      "};"
+    ],
+    "description": "Mapped type"
+  },
+  "TypeScript Conditional Type": {
+    "prefix": "tcond",
+    "body": [
+      "type ${1:Name}<T> = T extends ${2:Condition} ? ${3:True} : ${4:False};"
+    ],
+    "description": "Conditional type"
+  },
+  "TypeScript ReturnType": {
+    "prefix": "tret",
+    "body": ["ReturnType<typeof ${1:fn}>"],
+    "description": "ReturnType utility"
+  },
+  "TypeScript Record": {
+    "prefix": "trec",
+    "body": ["Record<${1:Keys}, ${2:Values}>"],
+    "description": "Record<K,V>"
+  },
+  "TypeScript Partial": {
+    "prefix": "tpart",
+    "body": ["Partial<${1:Type}>"],
+    "description": "Partial<T>"
+  },
+  "TypeScript Omit": {
+    "prefix": "tomit",
+    "body": ["Omit<${1:Type}, ${2:'key'}>"],
+    "description": "Omit<T, K>"
+  },
+  "TypeScript Pick": {
+    "prefix": "tpick",
+    "body": ["Pick<${1:Type}, ${2:'key'}>"],
+    "description": "Pick<T, K>"
+  },
+  "TypeScript Declare Module": {
+    "prefix": "dmod",
+    "body": ["declare module '${1:module-name}' {", "\t$0", "}"],
+    "description": "Ambient module declaration"
+  },
+  "Angular Component": {
+    "prefix": "ngcomp",
+    "body": [
+      "import { Component } from '@angular/core';",
+      "",
+      "@Component({",
+      "\tselector: '${1:app-component}',",
+      "\ttemplate: `",
+      "\t\t$0",
+      "\t`,",
+      "})",
+      "export class ${2:ComponentName}Component {}"
+    ],
+    "description": "Angular component"
+  },
+  "Angular Component OnPush": {
+    "prefix": "ngcompc",
+    "body": [
+      "import { Component, ChangeDetectionStrategy } from '@angular/core';",
+      "",
+      "@Component({",
+      "\tselector: '${1:app-component}',",
+      "\ttemplateUrl: './${2:component}.component.html',",
+      "\tchangeDetection: ChangeDetectionStrategy.OnPush,",
+      "})",
+      "export class ${3:ComponentName}Component {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Angular component with OnPush"
+  },
+  "Angular Service": {
+    "prefix": "ngsvc",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "",
+      "@Injectable({",
+      "\tprovidedIn: 'root',",
+      "})",
+      "export class ${1:Name}Service {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Angular injectable service"
+  },
+  "Angular Input": {
+    "prefix": "ngin",
+    "body": ["@Input() ${1:property}: ${2:string} = ${3:''};"],
+    "description": "Angular @Input"
+  },
+  "Angular Output": {
+    "prefix": "ngout",
+    "body": ["@Output() ${1:event} = new EventEmitter<${2:void}>();"],
+    "description": "Angular @Output"
+  },
+  "Angular ngOnInit": {
+    "prefix": "ngoninit",
+    "body": ["ngOnInit(): void {", "\t$0", "}"],
+    "description": "ngOnInit lifecycle"
+  },
+  "Angular ngOnDestroy": {
+    "prefix": "ngondestroy",
+    "body": ["ngOnDestroy(): void {", "\t$0", "}"],
+    "description": "ngOnDestroy lifecycle"
+  },
+  "Angular Pipe": {
+    "prefix": "ngpipe",
+    "body": [
+      "import { Pipe, PipeTransform } from '@angular/core';",
+      "",
+      "@Pipe({ name: '${1:pipeName}' })",
+      "export class ${2:PipeName}Pipe implements PipeTransform {",
+      "\ttransform(value: ${3:unknown}, ...args: unknown[]): ${4:unknown} {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Angular pipe"
+  },
+  "Angular Directive": {
+    "prefix": "ngdir",
+    "body": [
+      "import { Directive, ElementRef } from '@angular/core';",
+      "",
+      "@Directive({ selector: '[${1:appDirective}]' })",
+      "export class ${2:DirectiveName}Directive {",
+      "\tconstructor(private el: ElementRef) {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Angular directive"
+  },
+  "Angular HttpClient GET": {
+    "prefix": "nghttp",
+    "body": [
+      "this.http.get<${1:ResponseType}>('${2:url}').subscribe({",
+      "\tnext: (${3:data}) => { $0 },",
+      "\terror: (err) => { console.error(err); },",
+      "});"
+    ],
+    "description": "Angular HttpClient GET"
+  },
+  "Angular Signal": {
+    "prefix": "ngsig",
+    "body": ["${1:count} = signal<${2:number}>(${3:0});"],
+    "description": "Angular signal"
+  },
+  "Angular Computed": {
+    "prefix": "ngcomputed",
+    "body": ["${1:doubled} = computed(() => $0);"],
+    "description": "Angular computed signal"
+  },
+  "Angular Effect": {
+    "prefix": "ngeffect",
+    "body": ["effect(() => {", "\t$0", "});"],
+    "description": "Angular effect"
+  },
+  "Vue SFC": {
+    "prefix": "vsfc",
+    "body": [
+      "<script setup lang=\"ts\">",
+      "$0",
+      "</script>",
+      "",
+      "<template>",
+      "\t<div>",
+      "\t\t",
+      "\t</div>",
+      "</template>",
+      "",
+      "<style scoped>",
+      "</style>"
+    ],
+    "description": "Vue 3 SFC with script setup"
+  },
+  "Vue ref": {
+    "prefix": "vref",
+    "body": ["const ${1:name} = ref<${2:string}>(${3:''});"],
+    "description": "Vue ref"
+  },
+  "Vue reactive": {
+    "prefix": "vreact",
+    "body": [
+      "const ${1:state} = reactive({",
+      "\t${2:key}: ${3:value},$0",
+      "});"
+    ],
+    "description": "Vue reactive"
+  },
+  "Vue computed": {
+    "prefix": "vcomp",
+    "body": ["const ${1:name} = computed(() => {", "\treturn $0;", "});"],
+    "description": "Vue computed"
+  },
+  "Vue watch": {
+    "prefix": "vwatch",
+    "body": [
+      "watch(${1:source}, (${2:newVal}, ${3:oldVal}) => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Vue watch"
+  },
+  "Vue watchEffect": {
+    "prefix": "vwe",
+    "body": ["watchEffect(() => {", "\t$0", "});"],
+    "description": "Vue watchEffect"
+  },
+  "Vue onMounted": {
+    "prefix": "vom",
+    "body": ["onMounted(() => {", "\t$0", "});"],
+    "description": "Vue onMounted"
+  },
+  "Vue onUnmounted": {
+    "prefix": "voum",
+    "body": ["onUnmounted(() => {", "\t$0", "});"],
+    "description": "Vue onUnmounted"
+  },
+  "Vue defineProps": {
+    "prefix": "vprops",
+    "body": [
+      "const props = defineProps<{",
+      "\t${1:label}: ${2:string};$0",
+      "}>();"
+    ],
+    "description": "Vue defineProps with TypeScript"
+  },
+  "Vue defineEmits": {
+    "prefix": "vemits",
+    "body": [
+      "const emit = defineEmits<{",
+      "\t${1:change}: [${2:value}: ${3:string}];$0",
+      "}>();"
+    ],
+    "description": "Vue defineEmits with TypeScript"
+  },
+  "Vue defineExpose": {
+    "prefix": "vexpose",
+    "body": ["defineExpose({", "\t$0", "});"],
+    "description": "Vue defineExpose"
+  },
+  "Vue provide": {
+    "prefix": "vprov",
+    "body": ["provide(${1:key}, ${2:value});"],
+    "description": "Vue provide"
+  },
+  "Vue inject": {
+    "prefix": "vinj",
+    "body": ["const ${1:value} = inject<${2:Type}>(${3:key});"],
+    "description": "Vue inject"
+  },
+  "Vue Composable": {
+    "prefix": "vcomposable",
+    "body": [
+      "import { ref } from 'vue';",
+      "",
+      "export function use${1:Name}() {",
+      "\tconst ${2:state} = ref<${3:string}>('');",
+      "",
+      "\t$0",
+      "",
+      "\treturn { ${2:state} };",
+      "}"
+    ],
+    "description": "Vue composable"
+  },
+  "Vue v-for": {
+    "prefix": "vfor",
+    "body": ["v-for=\"${1:item} in ${2:items}\" :key=\"${1:item}.${3:id}\""],
+    "description": "Vue v-for directive"
+  },
+  "Vue v-if": {
+    "prefix": "vif",
+    "body": ["v-if=\"${1:condition}\""],
+    "description": "Vue v-if directive"
+  },
+  "Vue v-model": {
+    "prefix": "vmodel",
+    "body": ["v-model=\"${1:value}\""],
+    "description": "Vue v-model"
+  },
+  "PHP Class": {
+    "prefix": "phpclass",
+    "body": [
+      "<?php",
+      "",
+      "class ${1:ClassName} {",
+      "\tpublic function __construct(",
+      "\t\tprivate ${2:string} \\$${3:property}",
+      "\t) {}",
+      "",
+      "\t$0",
+      "}"
+    ],
+    "description": "PHP class with constructor promotion"
+  },
+  "PHP Interface": {
+    "prefix": "phpiface",
+    "body": [
+      "<?php",
+      "",
+      "interface ${1:InterfaceName} {",
+      "\tpublic function ${2:method}(): ${3:void};$0",
+      "}"
+    ],
+    "description": "PHP interface"
+  },
+  "PHP Abstract Class": {
+    "prefix": "phpabs",
+    "body": [
+      "<?php",
+      "",
+      "abstract class ${1:ClassName} {",
+      "\tabstract public function ${2:method}(): ${3:void};",
+      "",
+      "\t$0",
+      "}"
+    ],
+    "description": "PHP abstract class"
+  },
+  "PHP Trait": {
+    "prefix": "phptrait",
+    "body": ["<?php", "", "trait ${1:TraitName} {", "\t$0", "}"],
+    "description": "PHP trait"
+  },
+  "PHP Enum": {
+    "prefix": "phpenum",
+    "body": [
+      "<?php",
+      "",
+      "enum ${1:Status}: ${2:string} {",
+      "\tcase ${3:Active} = '${4:active}';$0",
+      "}"
+    ],
+    "description": "PHP backed enum"
+  },
+  "PHP Function": {
+    "prefix": "phpfn",
+    "body": [
+      "function ${1:name}(${2:${3:type} \\$${4:param}}): ${5:void} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "PHP function"
+  },
+  "PHP Arrow Function": {
+    "prefix": "phpaf",
+    "body": ["fn(${1:\\$${2:param}}) => $0"],
+    "description": "PHP arrow function"
+  },
+  "PHP Try Catch": {
+    "prefix": "phptc",
+    "body": [
+      "try {",
+      "\t$1",
+      "} catch (${2:\\Exception} \\$${3:e}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "PHP try/catch"
+  },
+  "PHP Namespace": {
+    "prefix": "phpns",
+    "body": ["<?php", "", "namespace ${1:App\\\\${2:Http}};", "", "$0"],
+    "description": "PHP namespace"
+  },
+  "PHP Use": {
+    "prefix": "phpuse",
+    "body": ["use ${1:Namespace\\\\ClassName};"],
+    "description": "PHP use statement"
+  },
+  "PHP Array Map": {
+    "prefix": "phpmap",
+    "body": ["array_map(fn(\\$${1:item}) => $0, \\$${2:array})"],
+    "description": "PHP array_map"
+  },
+  "PHP Array Filter": {
+    "prefix": "phpfilter",
+    "body": ["array_filter(\\$${1:array}, fn(\\$${2:item}) => $0)"],
+    "description": "PHP array_filter"
+  },
+  "PHP dd": {
+    "prefix": "phpdd",
+    "body": ["dd($0);"],
+    "description": "PHP dd (Laravel)"
+  },
+  "PHP var_dump": {
+    "prefix": "phpvd",
+    "body": ["var_dump($0);"],
+    "description": "PHP var_dump"
+  },
+  "Go Main": {
+    "prefix": "gomain",
+    "body": ["package main", "", "func main() {", "\t$0", "}"],
+    "description": "Go main function"
+  },
+  "Go Function": {
+    "prefix": "gofn",
+    "body": [
+      "func ${1:name}(${2:param} ${3:type}) ${4:returnType} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Go function"
+  },
+  "Go Method": {
+    "prefix": "gomethod",
+    "body": [
+      "func (${1:r} *${2:Receiver}) ${3:Name}(${4:param} ${5:type}) ${6:error} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Go method"
+  },
+  "Go Struct": {
+    "prefix": "gostruct",
+    "body": [
+      "type ${1:Name} struct {",
+      "\t${2:Field} ${3:string}",
+      "\t$0",
+      "}"
+    ],
+    "description": "Go struct"
+  },
+  "Go Interface": {
+    "prefix": "goiface",
+    "body": [
+      "type ${1:Name} interface {",
+      "\t${2:Method}() ${3:error}",
+      "\t$0",
+      "}"
+    ],
+    "description": "Go interface"
+  },
+  "Go Error Check": {
+    "prefix": "goerr",
+    "body": ["if err != nil {", "\treturn ${1:nil,} err", "}"],
+    "description": "Go error check"
+  },
+  "Go Error Wrap": {
+    "prefix": "goerrf",
+    "body": [
+      "if err != nil {",
+      "\treturn fmt.Errorf(\"${1:context}: %w\", err)",
+      "}"
+    ],
+    "description": "Go error wrap"
+  },
+  "Go Assign and Check Error": {
+    "prefix": "goiferr",
+    "body": [
+      "${1:result}, err := ${2:call}()",
+      "if err != nil {",
+      "\treturn ${3:nil,} err",
+      "}"
+    ],
+    "description": "Go assign and check error"
+  },
+  "Go Goroutine": {
+    "prefix": "gogo",
+    "body": ["go func() {", "\t$0", "}()"],
+    "description": "Go goroutine"
+  },
+  "Go Channel": {
+    "prefix": "gochan",
+    "body": ["${1:ch} := make(chan ${2:int}, ${3:1})"],
+    "description": "Go channel"
+  },
+  "Go Select": {
+    "prefix": "gosel",
+    "body": [
+      "select {",
+      "case ${1:msg} := <-${2:ch}:",
+      "\t$0",
+      "case <-${3:done}:",
+      "\treturn",
+      "}"
+    ],
+    "description": "Go select"
+  },
+  "Go Defer": {
+    "prefix": "godefer",
+    "body": ["defer ${1:func}($0)"],
+    "description": "Go defer"
+  },
+  "Go For Range": {
+    "prefix": "gofor",
+    "body": ["for ${1:i}, ${2:v} := range ${3:slice} {", "\t$0", "}"],
+    "description": "Go for range"
+  },
+  "Go Test Function": {
+    "prefix": "gotest",
+    "body": ["func Test${1:Name}(t *testing.T) {", "\t$0", "}"],
+    "description": "Go test function"
+  },
+  "Go Table Test": {
+    "prefix": "gottable",
+    "body": [
+      "tests := []struct {",
+      "\tname  string",
+      "\tinput ${1:string}",
+      "\twant  ${2:string}",
+      "}{",
+      "\t{name: \"${3:case}\", input: ${4:\"\"}, want: ${5:\"\"}},",
+      "}",
+      "",
+      "for _, tt := range tests {",
+      "\tt.Run(tt.name, func(t *testing.T) {",
+      "\t\tgot := $0",
+      "\t\tif got != tt.want {",
+      "\t\t\tt.Errorf(\"got %v, want %v\", got, tt.want)",
+      "\t\t}",
+      "\t})",
+      "}"
+    ],
+    "description": "Go table-driven test"
+  },
+  "Go HTTP Handler": {
+    "prefix": "gohttp",
+    "body": [
+      "func ${1:handler}(w http.ResponseWriter, r *http.Request) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Go HTTP handler"
+  },
+  "Go Fmt Println": {
+    "prefix": "gofmt",
+    "body": ["fmt.Println($0)"],
+    "description": "fmt.Println"
+  },
+  "Go Fmt Printf": {
+    "prefix": "gofmtf",
+    "body": ["fmt.Printf(\"${1:%v}\\n\", $0)"],
+    "description": "fmt.Printf"
+  },
+  "Rust Function": {
+    "prefix": "rsfn",
+    "body": [
+      "fn ${1:name}(${2:param}: ${3:type}) -> ${4:ReturnType} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Rust function"
+  },
+  "Rust Async Function": {
+    "prefix": "rsafn",
+    "body": [
+      "async fn ${1:name}(${2:param}: ${3:type}) -> ${4:ReturnType} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Rust async function"
+  },
+  "Rust Struct": {
+    "prefix": "rsstruct",
+    "body": ["struct ${1:Name} {", "\t${2:field}: ${3:Type},$0", "}"],
+    "description": "Rust struct"
+  },
+  "Rust Struct Derive": {
+    "prefix": "rsderiv",
+    "body": [
+      "#[derive(${1:Debug, Clone})]",
+      "struct ${2:Name} {",
+      "\t${3:field}: ${4:Type},$0",
+      "}"
+    ],
+    "description": "Rust struct with derive"
+  },
+  "Rust Enum": {
+    "prefix": "rsenum",
+    "body": [
+      "enum ${1:Name} {",
+      "\t${2:Variant1},",
+      "\t${3:Variant2}($4),$0",
+      "}"
+    ],
+    "description": "Rust enum"
+  },
+  "Rust Impl": {
+    "prefix": "rsimpl",
+    "body": [
+      "impl ${1:TypeName} {",
+      "\tpub fn ${2:new}($3) -> Self {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Rust impl block"
+  },
+  "Rust Trait": {
+    "prefix": "rstrait",
+    "body": [
+      "trait ${1:Name} {",
+      "\tfn ${2:method}(&self) -> ${3:ReturnType};$0",
+      "}"
+    ],
+    "description": "Rust trait"
+  },
+  "Rust Impl Trait": {
+    "prefix": "rsimpltr",
+    "body": [
+      "impl ${1:Trait} for ${2:Type} {",
+      "\tfn ${3:method}(&self) -> ${4:ReturnType} {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Rust impl trait for type"
+  },
+  "Rust Match": {
+    "prefix": "rsmatch",
+    "body": ["match ${1:value} {", "\t${2:pattern} => $3,", "\t_ => $0,", "}"],
+    "description": "Rust match expression"
+  },
+  "Rust if let": {
+    "prefix": "rsiflet",
+    "body": ["if let ${1:Some(${2:val})} = ${3:expr} {", "\t$0", "}"],
+    "description": "Rust if let"
+  },
+  "Rust while let": {
+    "prefix": "rswlet",
+    "body": ["while let ${1:Some(${2:val})} = ${3:expr} {", "\t$0", "}"],
+    "description": "Rust while let"
+  },
+  "Rust Result": {
+    "prefix": "rsresult",
+    "body": ["Result<${1:T}, ${2:E}>"],
+    "description": "Rust Result type"
+  },
+  "Rust Option": {
+    "prefix": "rsoption",
+    "body": ["Option<${1:T}>"],
+    "description": "Rust Option type"
+  },
+  "Rust Vec": {
+    "prefix": "rsvec",
+    "body": ["let ${1:v}: Vec<${2:T}> = Vec::new();"],
+    "description": "Rust Vec::new"
+  },
+  "Rust vec! macro": {
+    "prefix": "rsvecm",
+    "body": ["let ${1:v} = vec![$0];"],
+    "description": "Rust vec! macro"
+  },
+  "Rust HashMap": {
+    "prefix": "rshmap",
+    "body": [
+      "let mut ${1:map}: HashMap<${2:String}, ${3:i32}> = HashMap::new();"
+    ],
+    "description": "Rust HashMap"
+  },
+  "Rust Closure": {
+    "prefix": "rsclos",
+    "body": ["|${1:param}| $0"],
+    "description": "Rust closure"
+  },
+  "Rust For Loop": {
+    "prefix": "rsfor",
+    "body": ["for ${1:item} in ${2:iter} {", "\t$0", "}"],
+    "description": "Rust for loop"
+  },
+  "Rust println": {
+    "prefix": "rspln",
+    "body": ["println!(\"${1:{}}\", $0);"],
+    "description": "Rust println!"
+  },
+  "Rust dbg": {
+    "prefix": "rsdbg",
+    "body": ["dbg!(&$0);"],
+    "description": "Rust dbg!"
+  },
+  "Rust Test Module": {
+    "prefix": "rstestmod",
+    "body": [
+      "#[cfg(test)]",
+      "mod tests {",
+      "\tuse super::*;",
+      "",
+      "\t#[test]",
+      "\tfn ${1:test_name}() {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Rust test module"
+  },
+  "Rust Test Function": {
+    "prefix": "rstestfn",
+    "body": ["#[test]", "fn ${1:test_name}() {", "\t$0", "}"],
+    "description": "Rust test function"
+  },
+  "Python Function": {
+    "prefix": "pyfn",
+    "body": ["def ${1:name}(${2:param}: ${3:str}) -> ${4:None}:", "\t$0"],
+    "description": "Python function with type hints"
+  },
+  "Python Async Function": {
+    "prefix": "pyafn",
+    "body": ["async def ${1:name}(${2:param}: ${3:str}) -> ${4:None}:", "\t$0"],
+    "description": "Python async function"
+  },
+  "Python Class": {
+    "prefix": "pycls",
+    "body": [
+      "class ${1:ClassName}:",
+      "\tdef __init__(self, ${2:param}: ${3:str}) -> None:",
+      "\t\tself.${2:param} = ${2:param}",
+      "\t\t$0"
+    ],
+    "description": "Python class"
+  },
+  "Python Dataclass": {
+    "prefix": "pydc",
+    "body": [
+      "from dataclasses import dataclass",
+      "",
+      "@dataclass",
+      "class ${1:Name}:",
+      "\t${2:field}: ${3:str}",
+      "\t$0"
+    ],
+    "description": "Python dataclass"
+  },
+  "Python Dataclass Frozen": {
+    "prefix": "pydcf",
+    "body": [
+      "from dataclasses import dataclass",
+      "",
+      "@dataclass(frozen=True)",
+      "class ${1:Name}:",
+      "\t${2:field}: ${3:str}",
+      "\t$0"
+    ],
+    "description": "Python frozen dataclass"
+  },
+  "Python TypedDict": {
+    "prefix": "pytd",
+    "body": [
+      "from typing import TypedDict",
+      "",
+      "class ${1:Name}(TypedDict):",
+      "\t${2:key}: ${3:str}",
+      "\t$0"
+    ],
+    "description": "Python TypedDict"
+  },
+  "Python Protocol": {
+    "prefix": "pyprot",
+    "body": [
+      "from typing import Protocol",
+      "",
+      "class ${1:Name}(Protocol):",
+      "\tdef ${2:method}(self) -> ${3:None}: ...",
+      "\t$0"
+    ],
+    "description": "Python Protocol"
+  },
+  "Python Try Except": {
+    "prefix": "pytc",
+    "body": ["try:", "\t$1", "except ${2:Exception} as ${3:e}:", "\t$0"],
+    "description": "Python try/except"
+  },
+  "Python Try Except Finally": {
+    "prefix": "pytcf",
+    "body": [
+      "try:",
+      "\t$1",
+      "except ${2:Exception} as ${3:e}:",
+      "\t$4",
+      "finally:",
+      "\t$0"
+    ],
+    "description": "Python try/except/finally"
+  },
+  "Python Context Manager": {
+    "prefix": "pywith",
+    "body": ["with ${1:open('${2:file}')} as ${3:f}:", "\t$0"],
+    "description": "Python with statement"
+  },
+  "Python List Comprehension": {
+    "prefix": "pylc",
+    "body": [
+      "[${1:expr} for ${2:item} in ${3:iterable}${4: if ${5:condition}}]"
+    ],
+    "description": "List comprehension"
+  },
+  "Python Dict Comprehension": {
+    "prefix": "pydc2",
+    "body": ["{${1:key}: ${2:value} for ${3:item} in ${4:iterable}}"],
+    "description": "Dict comprehension"
+  },
+  "Python Generator": {
+    "prefix": "pygen",
+    "body": ["(${1:expr} for ${2:item} in ${3:iterable})"],
+    "description": "Generator expression"
+  },
+  "Python Lambda": {
+    "prefix": "pylambda",
+    "body": ["lambda ${1:x}: $0"],
+    "description": "Python lambda"
+  },
+  "Python Main Guard": {
+    "prefix": "pymain",
+    "body": ["if __name__ == '__main__':", "\t$0"],
+    "description": "Python __main__ guard"
+  },
+  "Python Property": {
+    "prefix": "pyprop",
+    "body": [
+      "@property",
+      "def ${1:name}(self) -> ${2:str}:",
+      "\treturn self._${1:name}",
+      "",
+      "@${1:name}.setter",
+      "def ${1:name}(self, value: ${2:str}) -> None:",
+      "\tself._${1:name} = value"
+    ],
+    "description": "Python property with setter"
+  },
+  "Python Classmethod": {
+    "prefix": "pyclsm",
+    "body": [
+      "@classmethod",
+      "def ${1:name}(cls, ${2:param}: ${3:str}) -> '${4:Self}':",
+      "\t$0"
+    ],
+    "description": "Python classmethod"
+  },
+  "Python Staticmethod": {
+    "prefix": "pystatic",
+    "body": [
+      "@staticmethod",
+      "def ${1:name}(${2:param}: ${3:str}) -> ${4:None}:",
+      "\t$0"
+    ],
+    "description": "Python staticmethod"
+  },
+  "Python Enum": {
+    "prefix": "pyenum",
+    "body": [
+      "from enum import Enum",
+      "",
+      "class ${1:Name}(Enum):",
+      "\t${2:VALUE} = '${3:value}'",
+      "\t$0"
+    ],
+    "description": "Python Enum"
+  },
+  "Python Print": {
+    "prefix": "pyp",
+    "body": ["print($0)"],
+    "description": "Python print"
+  },
+  "Python Print f-string": {
+    "prefix": "pypf",
+    "body": ["print(f\"${1:label}: {$0}\")"],
+    "description": "Python f-string print"
+  },
+  "Python Import": {
+    "prefix": "pyim",
+    "body": ["from ${1:module} import ${2:name}"],
+    "description": "Python from import"
+  },
+  "Python Assert": {
+    "prefix": "pyassert",
+    "body": ["assert ${1:condition}, \"${2:message}\""],
+    "description": "Python assert"
+  }
+}
