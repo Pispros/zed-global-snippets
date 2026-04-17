@@ -1,4 +1,33 @@
 {
+  "If statement": {
+    "prefix": "if",
+    "body": ["if (${1:condition}) {", "\t${2:// code}", "}"],
+    "description": "If statement"
+  },
+  "Try catch": {
+    "prefix": "try",
+    "body": [
+      "try {",
+      "\t${1:// code}",
+      "} catch (${2:error}) {",
+      "\t${3:// handle error}",
+      "}"
+    ],
+    "description": "Try catch block"
+  },
+  "Switch statement": {
+    "prefix": "switch",
+    "body": [
+      "switch (${1:expression}) {",
+      "\tcase ${2:value}:",
+      "\t\t${3:// code}",
+      "\t\tbreak;",
+      "\tdefault:",
+      "\t\t${4:// code}",
+      "}"
+    ],
+    "description": "Switch statement"
+  },
   "Arrow Function": {
     "prefix": "af",
     "body": ["const ${1:name} = (${2:params}) => {", "\t$0", "};"],
